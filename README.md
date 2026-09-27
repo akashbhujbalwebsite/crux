@@ -36,7 +36,7 @@ Claude/ChatGPT sees the variable names — never the actual values.
 ## Install
 
 ```bash
-pip install git+https://github.com/akashbhujbalwebsite/crux.git
+pip install crux-inject
 crux install
 source ~/.bashrc
 ```
