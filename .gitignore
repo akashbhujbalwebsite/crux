@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.env
+.venv
+venv/
+*.pyc
+
+# Never commit encrypted store or key
+.crux/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
