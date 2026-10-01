@@ -35,11 +35,22 @@ Claude/ChatGPT sees the variable names — never the actual values.
 
 ## Install
 
+**Linux / macOS (recommended):**
 ```bash
-pip install crux-inject
+pipx install crux-inject
 crux install
 source ~/.bashrc
 ```
+
+> **Ubuntu/Debian users:** `pip install` is blocked system-wide by default. Use `pipx` instead.
+> Install pipx first if needed: `sudo apt install pipx && pipx ensurepath`
+
+**Inside a virtual environment:**
+```bash
+pip install crux-inject
+```
+
+> **Platform support:** Linux and macOS only. Windows users: use WSL2.
 
 ---
 
@@ -99,9 +110,8 @@ Now tell Claude: *"SSH into $VM_USER@$VM_IP and check disk space"* — Claude ru
 | You type | CRUX resolves to |
 |----------|-----------------|
 | `crux run claude` | `claude` |
-| `crux run chatgpt` | `codex` |
 | `crux run cursor` | `cursor-agent` |
-| `crux run gemini` | `gemini` or `antigravity` |
+| `crux run gemini` | `gemini-cli` |
 | `crux run copilot` | `copilot` |
 | `crux run <anything>` | any binary in PATH |
 
@@ -139,7 +149,7 @@ On every terminal open, this hook:
 2. Adds all credential key names to `HISTIGNORE` so they never appear in shell history
 3. Runs `ulimit -c 0` to disable core dumps (prevents credentials leaking in crash files)
 
-Credentials are stored encrypted at `~/.crux/store.enc` using **Fernet (AES-128)**. The encryption key is stored in your OS keyring (Linux Secret Service / macOS Keychain / Windows Credential Manager) with a file-based fallback at `~/.crux/.key` for headless servers.
+Credentials are stored encrypted at `~/.crux/store.enc` using **Fernet (AES-128)**. The encryption key is stored in your OS keyring (Linux Secret Service / macOS Keychain) with a file-based fallback at `~/.crux/.key` for headless servers.
 
 ---
 
